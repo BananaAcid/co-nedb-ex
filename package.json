@@ -1,15 +1,16 @@
 {
-  "name": "co-nedb",
-  "version": "2.0.1",
-  "repository": "jksdua/co-nedb",
-  "description": "nedb generator goodness for co",
+  "name": "co-nedb-ex",
+  "version": "1.0.0",
+  "repository": "bananaacid/co-nedb-ex",
+  "description": "nedb generator goodness for co, preserving the original object",
   "keywords": [
     "co",
     "nedb",
     "generators"
   ],
   "dependencies": {
-    "thunkify": "~2.1.2"
+    "thunkify": "~2.1.2",
+    "extend": "3.0.0"
   },
   "devDependencies": {
     "mocha": "*",

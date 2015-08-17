@@ -1,9 +1,11 @@
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-var thunkify = require('thunkify');
+var extend = require('extend')
+  , thunkify = require('thunkify');
 
 /**
  * Methods to wrap.
@@ -16,20 +18,24 @@ var methods = [
   'find',
   'findOne',
   'insert',
-  'ensureIndex'
+  'ensureIndex',
+  'removeIndex'
 ];
 
 /**
- * Wrap `db`.
+ * Wrap `db`. preserve supplied object - but use the same instances behind it
  *
  * @param {Datastore} db
  * @return {Datastore}
  * @api public
  */
 
-module.exports = function(db){
-  methods.forEach(function(method){
-    db[method] = thunkify(db[method]);
+module.exports = function(dbIn) {
+   // shallow copy
+  var db = extend({}, dbIn);
+
+  methods.forEach(function(method) {
+    db[method] = thunkify(dbIn[method]);
   });
 
   return db;

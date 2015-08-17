@@ -3,6 +3,9 @@
 
   Nedb made more awesome with generators.
 
+  This fork preserves the original supplied NeDB object, but links to the same instance.
+  - You can use the callbacks on the original object.
+
 ## Installation
 
 ```
@@ -18,7 +21,7 @@ var Datastore = require('nedb');
 var wrap = require('co-nedb');
 
 var db = new Datastore({ autoload: true }); // in-memory database
-var users = wrap(db);
+var users = wrap(db);                       // !!! RETURNS A NEW DB OBJECT (the original is NOT MODIFED) !!!
 ```
 
 ## Example
